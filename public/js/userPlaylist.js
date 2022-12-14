@@ -1,8 +1,9 @@
 const row = $("#data");
 const deleteBtn =$('#delete')
+const userData = JSON.parse(localStorage.getItem('USER_DATA') || '{}')
 
 function runSong() {
-    let playlistAPI = "api/playlist/3";
+    let playlistAPI = `api/playlist/${userData.user.id}`;
     fetch(playlistAPI)
       .then(function (response) {
         return response.json();
